@@ -1,0 +1,76 @@
+@startuml
+title Jeu du Uno
+
+' Classe principale qui gère le jeu
+class UnoGame {
+  + startGame(): void
+  + playTurn(): void
+  + isGameOver(): boolean
+  - currentPlayer: Joueur
+  - deck: Deck
+  - discardPile: PileDeDéfausse
+}
+
+' Classe représentant les joueurs
+class Joueur {
+  + jouerCarte(carte: Carte): void
+  + piocherCarte(): Carte
+  + direUno(): void
+  + hasWon(): boolean
+  - nom: string
+  - main: List<Carte>
+}
+
+' Classe représentant le deck de cartes
+class Deck {
+  + piocherCarte(): Carte
+  + melanger(): void
+  - cartes: List<Carte>
+}
+
+' Classe représentant la pile de défausse
+class PileDeDéfausse {
+  + ajouterCarte(carte: Carte): void
+  + getDerniereCarte(): Carte
+  - cartes: List<Carte>
+}
+
+' Classe de la carte (abstraite)
+abstract class Carte {
+  + appliquerEffet(): void
+  + estJouable(sur: Carte): boolean
+  - couleur: string
+  - valeur: string
+}
+
+' Sous-classes des cartes de couleurs et des cartes spéciales
+class CarteClassique {
+  + appliquerEffet(): void
+  + estJouable(sur: Carte): boolean
+  - couleur: string
+  - valeur: string
+}
+
+class CarteSpeciale {
+  + appliquerEffet(): void
+  + estJouable(sur: Carte): boolean
+  - effet: string
+}
+
+' Sous-classes des cartes spéciales
+CarteSpeciale <|-- CartePlusDeux
+CarteSpeciale <|-- CarteChangementCouleur
+CarteSpeciale <|-- CartePasser
+CarteSpeciale <|-- CarteInversion
+
+' Relations entre les classes
+UnoGame "1" -- "1..*" Joueur : joueurs
+UnoGame "1" -- "1" Deck : deck
+UnoGame "1" -- "1" PileDeDéfausse : défausse
+Deck "1" -- "1..*" Carte : contient
+PileDeDéfausse "1" -- "1..*" Carte : contient
+Joueur "1" -- "0..*" Carte : main
+Carte <|-- CarteClassique
+Carte <|-- CarteSpeciale
+
+@enduml
