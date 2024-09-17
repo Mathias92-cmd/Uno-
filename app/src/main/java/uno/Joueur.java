@@ -20,7 +20,12 @@ public class Joueur {
     }
 
     public Carte piocherCarte() {
+        if(main.size() == 0){
+            System.out.println("Vous n'avez plus de carte, vous en piochez une !");
+            piocherCarte();
+        } else {
 
+        }
     }
 
     public int getNombreCartes() {
