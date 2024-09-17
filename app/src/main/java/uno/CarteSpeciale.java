@@ -1,9 +1,9 @@
 package uno;
 
-public class CarteClassique extends Carte {
+public class CarteSpeciale extends Carte {
 
 
-    public CarteClassique(String couleur, String valeur) {
+    public CarteSpeciale(String couleur, String valeur) {
         super(couleur, valeur);
     }
 
@@ -14,4 +14,5 @@ public class CarteClassique extends Carte {
     public boolean estJouable(Carte carte) {
         return false;
     }
+
 }
