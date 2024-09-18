@@ -1,6 +1,7 @@
 package uno;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Deck {
@@ -15,6 +16,6 @@ public class Deck {
     }
 
     public void melanger() {
-
+        Collections.shuffle(deck);
     }
 }
