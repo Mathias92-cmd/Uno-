@@ -26,7 +26,6 @@ public class UnoGame {
             String nomJoueur = scanner.nextLine();
             joueurs.add(new Joueur(nomJoueur));
         }
-        this.nbJoueurs = nbJoueurs;
         this.indexJoueurCourant = 0;
         this.joueurCourant = joueurs.get(indexJoueurCourant);
         this.deck = new Deck();
@@ -55,5 +54,9 @@ public class UnoGame {
         } else {
             System.out.println("La partie continue.");
         }
+    }
+
+    public int getNbJoueurs() {
+        return nbJoueurs;
     }
 }

@@ -6,8 +6,12 @@ public class Pioche {
 
     private List<Carte> cartes;
 
-    public void ajouterCarte(Carte carte) {
+    private UnoGame unoGame;
 
+    public void ajouterCarte(Carte carte) {
+        int nbCarteADistribuer = 7 * unoGame.getNbJoueurs();
+        cartes.add(carte);
+        System.out.println("Nombre de cartes restantes: " + (cartes.size() - nbCarteADistribuer));
     }
 
     public Carte getDerniereCarte() {
