@@ -15,6 +15,10 @@ public class Joueur {
         this.main = new ArrayList<Carte>();
     }
 
+    public String getNomJoueur() {
+        return nomJoueur;
+    }
+
     public void jouerCarte(Carte carte) {
 
     }
