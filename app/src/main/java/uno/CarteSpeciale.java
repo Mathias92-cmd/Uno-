@@ -16,7 +16,7 @@ public class CarteSpeciale extends Carte {
         this.effet = effet;
     }
 
-    public void appliquerEffetPlusDeux(Carte carte) {
+    public void appliquerEffet(Carte carte) {
         int nbCarte = getNbCartes();
         if (carte instanceof CarteSpeciale) {
             Effet effet = ((CarteSpeciale) carte).getEffet();
@@ -26,6 +26,8 @@ public class CarteSpeciale extends Carte {
             } else if (effet == Effet.PlusQuatre) {
                 System.out.println("Le joueur suivant pioche 4 cartes");
                 nbCarte += 4;
+            } else if (effet == Effet.ChangementCouleur) {
+                System.out.println("Veuillez choisir une couleur");
             }
         }
     }

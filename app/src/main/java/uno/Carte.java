@@ -1,13 +1,29 @@
 package uno;
 
 public abstract class Carte {
-    private String couleur;
-    private String valeur;
     private int nbCartes;
 
-    public Carte(String couleur, String valeur) {
-        this.couleur = couleur;
-        this.valeur = valeur;
+    public enum Couleur {
+        Rouge,
+        Jaune,
+        Verte,
+        Bleue
+    }
+
+    public enum Valeur {
+        Zero,
+        Un,
+        Deux,
+        Trois,
+        Quatre,
+        Cinq,
+        Six,
+        Sept,
+        Huit,
+        Neuf
+    }
+
+    public Carte() {
         nbCartes = 0;
     }
 
