@@ -16,7 +16,9 @@ public abstract class Carte {
     }
 
     public boolean estJouable(Carte carte) {
-        // Implémentation de la méthode
+        if(carte.getCouleur() == couleur || carte.getValeur() == valeur) {
+            return true;
+        }
         return false;
     }
 
