@@ -7,12 +7,17 @@ import java.util.Scanner;
 public class Joueur {
     private String nomJoueur;
     private List<Carte> main;
+    private static boolean inverser = false;
 
     Scanner scanner = new Scanner(System.in);
 
     public Joueur(String nomJoueur) {
         this.nomJoueur = nomJoueur;
         this.main = new ArrayList<Carte>();
+    }
+
+    public static void inverserSens() {
+        inverser = !inverser;
     }
 
     public String getNomJoueur() {

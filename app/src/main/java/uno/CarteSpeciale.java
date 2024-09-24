@@ -1,6 +1,12 @@
 package uno;
 
+import java.util.Scanner;
+
 public class CarteSpeciale extends Carte {
+
+    Scanner scanner = new Scanner(System.in);
+
+    private Couleur couleur;
 
     public enum Effet {
         PlusDeux,
@@ -27,7 +33,13 @@ public class CarteSpeciale extends Carte {
                 System.out.println("Le joueur suivant pioche 4 cartes");
                 nbCarte += 4;
             } else if (effet == Effet.ChangementCouleur) {
-                System.out.println("Veuillez choisir une couleur");
+                System.out.println("Veuillez choisir une couleur (rouge, bleu, vert, jaune)");
+                Couleur couleur = Couleur.valueOf(scanner.next().toUpperCase());
+                this.couleur = couleur;
+                System.out.println("Vous avez choisi la couleur " + couleur);
+            } else {
+                System.out.println("Le sens de jeu est inversé");
+                Joueur.inverserSens();
             }
         }
     }
