@@ -13,7 +13,7 @@ public class Joueur {
 
     public Joueur(String nomJoueur) {
         this.nomJoueur = nomJoueur;
-        this.main = new ArrayList<Carte>();
+        this.main = new ArrayList<>();
     }
 
     public static void inverserSens() {
@@ -30,18 +30,10 @@ public class Joueur {
             Pioche.ajouterCarte(carte);
         } else {
             System.out.println("Vous ne pouvez pas jouer cette carte !");
-            piocherCarte();
+            Joueur.piocherCarte();
         }
     }
 
-    public Carte piocherCarte() {
-        if(main.size() == 0){
-            System.out.println("Vous n'avez plus de carte, vous en piochez une !");
-            piocherCarte();
-        } else {
-
-        }
-    }
 
     public int getNombreCartes() {
         return main.size();

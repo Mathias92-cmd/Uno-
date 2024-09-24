@@ -4,6 +4,7 @@ public abstract class Carte {
     private Couleur couleur;
     private Valeur valeur;
     private int nbCartes;
+    private Carte carte;
 
     public Carte(Couleur couleur, Valeur valeur) {
         this.couleur = couleur;
@@ -15,7 +16,7 @@ public abstract class Carte {
         return nbCartes;
     }
 
-    public boolean estJouable(Carte carte) {
+    public boolean estJouable() {
         if(carte.getCouleur() == couleur || carte.getValeur() == valeur) {
             return true;
         }
