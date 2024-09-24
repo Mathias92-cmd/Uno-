@@ -25,7 +25,13 @@ public class Joueur {
     }
 
     public void jouerCarte(Carte carte) {
-
+        if(carte.estJouable(Pioche.getCarteEnJeu())){
+            retirerCarte(carte);
+            Pioche.ajouterCarte(carte);
+        } else {
+            System.out.println("Vous ne pouvez pas jouer cette carte !");
+            piocherCarte();
+        }
     }
 
     public Carte piocherCarte() {
