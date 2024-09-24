@@ -3,7 +3,7 @@ package uno;
 public class CarteClassique extends Carte {
 
 
-    public CarteClassique(String couleur, String valeur) {
+    public CarteClassique(Couleur couleur, Valeur valeur) {
         super(couleur, valeur);
     }
 
