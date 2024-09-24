@@ -11,8 +11,8 @@ public class CarteSpeciale extends Carte {
 
     private Effet effet;
 
-    public CarteSpeciale(String couleur , Effet effet) {
-        super(couleur, "");
+    public CarteSpeciale(Couleur couleur,Valeur valeur ,  Effet effet) {
+        super(couleur, valeur);
         this.effet = effet;
     }
 
