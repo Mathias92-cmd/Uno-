@@ -13,7 +13,10 @@ public class Deck {
     }
 
     public Carte piocherCarte() {
-        if(!carte.estJouable())
+        if(!carte.estJouable()){
+            System.out.println("Vous ne pouvez pas jouer cette carte !");
+            piocherCarte();
+        }
     }
 
     public void melanger() {
