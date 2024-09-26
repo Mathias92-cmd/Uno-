@@ -1,41 +1,28 @@
 package uno;
 
-public abstract class Carte {
-    private Couleur couleur;
-    private Valeur valeur;
-    private int nbCartes;
-    private Carte carte;
+public class Carte {
+    private String couleur;
+    private String valeur;
 
-    public Carte(Couleur couleur, Valeur valeur) {
+    public Carte(String couleur, String valeur) {
         this.couleur = couleur;
         this.valeur = valeur;
-        nbCartes = 0;
     }
 
-    public int getNbCartes() {
-        return nbCartes;
-    }
-
-    public boolean estJouable() {
-        if(carte.getCouleur() == couleur || carte.getValeur() == valeur) {
-            return true;
-        }
-        return false;
-    }
-
-    public void setNbCartes(int nbCartes) {
-        this.nbCartes = nbCartes;
-    }
-
-    public Couleur getCouleur() {
+    public String getCouleur() {
         return couleur;
     }
 
-    public Valeur getValeur() {
+    public String getValeur() {
         return valeur;
     }
 
+    public void setCouleur(String couleur) {
+        this.couleur = couleur;
+    }
+
+    @Override
     public String toString() {
-        return couleur + " " + valeur;
+        return valeur + " de " + couleur;
     }
 }

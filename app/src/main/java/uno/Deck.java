@@ -1,31 +1,25 @@
 package uno;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Deck {
-    private List<Carte> deck;
-    private Carte carte;
+    private List<Carte> cartes;
 
     public Deck() {
-        List<Carte> deck = new ArrayList<Carte>();
-    }
-
-    public Carte piocherCarte() {
-        while (!deck.isEmpty()) {
-            Carte carte = deck.removeFirst();
-            if (carte.estJouable()) {
-                return carte;
-            } else {
-                System.out.println("Vous ne pouvez pas jouer cette carte !");
-            }
-        }
-        System.out.println("Le deck est vide !");
-        return null;
+        cartes = new LinkedList<>();
     }
 
     public void melanger() {
-        Collections.shuffle(deck);
+        Collections.shuffle(cartes);
+    }
+
+    public Carte piocherCarte() {
+        if (!cartes.isEmpty()) {
+            return cartes.remove(0);
+        }
+        System.out.println("La pioche est vide !");
+        return null;
     }
 }
