@@ -13,10 +13,16 @@ public class Deck {
     }
 
     public Carte piocherCarte() {
-        if(!carte.estJouable()){
-            System.out.println("Vous ne pouvez pas jouer cette carte !");
-            piocherCarte();
+        while (!deck.isEmpty()) {
+            Carte carte = deck.removeFirst();
+            if (carte.estJouable()) {
+                return carte;
+            } else {
+                System.out.println("Vous ne pouvez pas jouer cette carte !");
+            }
         }
+        System.out.println("Le deck est vide !");
+        return null;
     }
 
     public void melanger() {
