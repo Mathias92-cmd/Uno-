@@ -17,7 +17,7 @@ public class CarteSpeciale extends Carte {
 
     private Effet effet;
 
-    public CarteSpeciale(Couleur couleur,Valeur valeur ,  Effet effet) {
+    public CarteSpeciale(Couleur couleur, Valeur valeur, Effet effet) {
         super(couleur, valeur);
         this.effet = effet;
     }
@@ -41,16 +41,17 @@ public class CarteSpeciale extends Carte {
                 System.out.println("Le sens de jeu est inversé");
                 Joueur.inverserSens();
             }
+            setNbCartes(nbCarte);
         }
     }
+
+
 
     private Effet getEffet() {
         return effet;
     }
 
-
     public boolean estJouable(Carte carte) {
         return false;
     }
-
 }

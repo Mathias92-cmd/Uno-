@@ -6,20 +6,20 @@ import java.util.List;
 
 public class Pioche {
 
-    private List<Carte> cartes;
-    private Carte carteEnJeu;
+    private static List<Carte> cartes;
+    private static Carte carteEnJeu;
 
     public Pioche() {
         cartes = new ArrayList<>();
     }
 
-    public void ajouterCarte(Carte carte) {
+    public static void ajouterCarte(Carte carte) {
         cartes.add(carte);
     }
 
     public Carte piocherCarte() {
         if (!cartes.isEmpty()) {
-            return cartes.remove(0);
+            return cartes.removeFirst();
         }
         System.out.println("La pioche est vide !");
         return null;
@@ -33,7 +33,7 @@ public class Pioche {
         return cartes.size();
     }
 
-    public Carte getCarteEnJeu() {
+    public static Carte getCarteEnJeu() {
         return carteEnJeu;
     }
 

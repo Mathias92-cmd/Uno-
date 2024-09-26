@@ -23,6 +23,10 @@ public abstract class Carte {
         return false;
     }
 
+    public void setNbCartes(int nbCartes) {
+        this.nbCartes = nbCartes;
+    }
+
     public Couleur getCouleur() {
         return couleur;
     }
