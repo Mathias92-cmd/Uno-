@@ -19,7 +19,7 @@ public class CarteSpeciale extends Carte {
     private List<Joueur> joueurs;
 
     public CarteSpeciale(Couleur couleur, Valeur valeur, Effet effet) {
-        super(couleur, valeur);
+        super(couleur.toString(), valeur.toString());
         this.effet = effet;
     }
 

@@ -1,6 +1,6 @@
 package uno;
 
-public class Carte {
+public abstract class Carte {
     private String couleur;
     private String valeur;
 
@@ -25,4 +25,6 @@ public class Carte {
     public String toString() {
         return valeur + " de " + couleur;
     }
+
+    public abstract boolean estJouable(Carte carte);
 }

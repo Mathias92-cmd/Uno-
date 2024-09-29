@@ -1,6 +1,7 @@
 package uno;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UnoGame {
@@ -20,22 +21,36 @@ public class UnoGame {
     }
 
     public UnoGame() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Entrez le nombre de joueurs: ");
-        nbJoueurs = scanner.nextInt();
-        scanner.nextLine();
+        try {
+            System.out.print("Entrez le nombre de joueurs: ");
+            if (scanner.hasNextInt()) {
+                nbJoueurs = scanner.nextInt();
+                scanner.nextLine();
+            } else {
+                System.out.println("Aucune entrée détectée. Utilisation de la valeur par défaut de 2 joueurs.");
+                nbJoueurs = 2; // Default value
+            }
 
-        for (int i = 0; i < nbJoueurs; i++) {
-            System.out.print("Entrez le nom du joueur " + (i + 1) + ": ");
-            String nomJoueur = scanner.nextLine();
-            joueurs.add(new Joueur(nomJoueur));
+            for (int i = 0; i < nbJoueurs; i++) {
+                System.out.print("Entrez le nom du joueur " + (i + 1) + ": ");
+                if (scanner.hasNextLine()) {
+                    String nomJoueur = scanner.nextLine();
+                    joueurs.add(new Joueur(nomJoueur));
+                } else {
+                    System.out.println("Aucune entrée détectée. Utilisation de noms par défaut.");
+                    joueurs.add(new Joueur("Joueur " + (i + 1))); // Default name
+                }
+            }
+            this.indexJoueurCourant = 0;
+            gameFinished = false;
+            this.joueurCourant = joueurs.get(indexJoueurCourant);
+            this.deck = new Deck();
+            this.piocheJetable = new Pioche();
+            commencerPartie();
+        } catch (Exception e) {
+            System.out.println("Une erreur est survenue pendant l'initialisation de la partie: " + e.getMessage());
+            gameFinished = true;
         }
-        this.indexJoueurCourant = 0;
-        gameFinished = false;
-        this.joueurCourant = joueurs.get(indexJoueurCourant);
-        this.deck = new Deck();
-        this.piocheJetable = new Pioche();
-        commencerPartie();
     }
 
     public void commencerPartie() {
@@ -121,6 +136,10 @@ public class UnoGame {
 
     public int getNbJoueurs() {
         return nbJoueurs;
+    }
+
+    public List<Joueur> getJoueurs() {
+        return joueurs;
     }
 
     public boolean isGameFinished() {
